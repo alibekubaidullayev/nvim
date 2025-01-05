@@ -161,6 +161,7 @@ return {
 				"vim",
 				"vimdoc",
 				"python",
+				"go",
 			},
 			auto_install = true,
 			highlight = {
@@ -188,6 +189,28 @@ return {
 				open_mapping = [[<C-t>]], -- Map Ctrl-T to toggle the terminal
 				direction = "float", -- Optional: choose "horizontal", "vertical", "float", or "tab"
 				shell = vim.o.shell,
+			})
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter", -- Ensure Treesitter is available
+		},
+		event = "BufReadPost", -- or remove if you prefer to load immediately
+		config = function()
+			require("treesitter-context").setup({
+				enable = true, -- Enable this plugin
+				multiwindow = false, -- Enable multiwindow support
+				max_lines = 0, -- No limit on the window lines
+				min_window_height = 0, -- No min window height for context
+				line_numbers = true,
+				multiline_threshold = 20, -- Maximum lines to show for a single context
+				trim_scope = "outer", -- Discard outer context lines if max_lines is exceeded
+				mode = "cursor", -- Calculate context from cursor line
+				separator = nil, -- e.g., use "-" or something if you want a separator
+				zindex = 20, -- Z-index for the context window
+				on_attach = nil, -- Callback on_attach
 			})
 		end,
 	},

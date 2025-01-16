@@ -29,7 +29,7 @@ return {
 				lsp_format_opt = "fallback"
 			end
 			return {
-				timeout_ms = 500,
+				timeout_ms = 2000,
 				lsp_format = lsp_format_opt,
 			}
 		end,
@@ -37,6 +37,15 @@ return {
 			lua = { "stylua" },
 			python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 			go = { "gofumpt", "goimports" },
+			c = { "clang_format" },
+			cpp = { "clang_format" },
+		},
+		formatters = {
+			clang_format = {
+				extra_args = {
+					"--style={BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Never}",
+				},
+			},
 		},
 	},
 }

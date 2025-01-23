@@ -162,6 +162,7 @@ return {
 				"vimdoc",
 				"python",
 				"go",
+				"java",
 			},
 			auto_install = true,
 			highlight = {

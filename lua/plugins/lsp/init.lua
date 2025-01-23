@@ -146,8 +146,7 @@ return {
 					gofumpt = true,
 				},
 				clangd = {
-					-- If you want to force C++20 (and not rely on compile flags):
-					-- cmd = { "clangd", "--std=c++20" },
+					cmd = { "clangd", "--std=c++20" },
 					capabilities = capabilities,
 					filetypes = { "c", "cpp", "objc", "objcpp" },
 					settings = {
@@ -159,12 +158,29 @@ return {
 						},
 					},
 				},
+				jdtls = {
+					settings = {
+						java = {
+							signatureHelp = { enabled = true },
+							configuration = { updateBuildConfiguration = "automatic" },
+							completion = {
+								favoriteStaticMembers = {
+									"org.assertj.core.api.Assertions.*",
+									"org.junit.jupiter.api.Assertions.*",
+								},
+							},
+						},
+					},
+				},
 			}
 
 			require("mason").setup()
 
 			local ensure_installed = vim.tbl_keys(servers or {})
-			vim.list_extend(ensure_installed, { "stylua", "ruff", "pyright", "gopls", "clangd", "clang-format" })
+			vim.list_extend(
+				ensure_installed,
+				{ "stylua", "ruff", "pyright", "gopls", "clangd", "clang-format", "jdtls" }
+			)
 			require("mason-tool-installer").setup({
 				ensure_installed = ensure_installed,
 			})
@@ -180,4 +196,8 @@ return {
 			})
 		end,
 	},
+	-- {
+	-- 	"mfussenegger/nvim-jdtls",
+	-- 	ft = "java", -- Enable only on .java file extensions
+	-- },
 }

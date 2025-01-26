@@ -1,5 +1,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
+CASE_SENSITIVE=true
+
 
 ZSH_THEME="awesomepanda"
 plugins=(
@@ -18,6 +20,13 @@ function fzf_cd() {
     fi
 }
 alias ff="fzf_cd"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$(go env GOPATH)/bin
+
 
 export FZF_DEFAULT_COMMAND='fdfind --type f --strip-cwd-prefix'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

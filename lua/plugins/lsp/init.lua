@@ -146,7 +146,7 @@ return {
 					gofumpt = true,
 				},
 				clangd = {
-					cmd = { "clangd", "--std=c++20" },
+					-- cmd = { "clangd", "--std=c++20" },
 					capabilities = capabilities,
 					filetypes = { "c", "cpp", "objc", "objcpp" },
 					settings = {
@@ -155,20 +155,6 @@ return {
 								autoimport = true,
 							},
 							fallbackFlags = { "-std=c++20" },
-						},
-					},
-				},
-				jdtls = {
-					settings = {
-						java = {
-							signatureHelp = { enabled = true },
-							configuration = { updateBuildConfiguration = "automatic" },
-							completion = {
-								favoriteStaticMembers = {
-									"org.assertj.core.api.Assertions.*",
-									"org.junit.jupiter.api.Assertions.*",
-								},
-							},
 						},
 					},
 				},

@@ -39,6 +39,7 @@ return {
 			go = { "gofumpt", "goimports" },
 			c = { "clang_format" },
 			cpp = { "clang_format" },
+			java = { "google-java-format" },
 		},
 		formatters = {
 			clang_format = {

@@ -42,9 +42,10 @@ return {
 		},
 		formatters = {
 			clang_format = {
-				extra_args = {
-					"--style={BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Never}",
-				},
+				-- extra_args = {
+				-- 	"--style={BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4, UseTab: Never}",
+				-- },
+				prepend_args = { "--style=file", "--fallback-style=LLVM" },
 			},
 		},
 	},

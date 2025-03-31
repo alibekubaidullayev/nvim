@@ -30,3 +30,4 @@ vim.opt.listchars = {
 vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 vim.opt.scrolloff = 8
+vim.opt.guicursor = ""

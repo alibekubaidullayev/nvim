@@ -9,7 +9,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.api.nvim_create_autocmd("TermOpen", {
 	pattern = "*",
 	callback = function()
-		-- Set shell to the shell used to launch Neovim
 		vim.opt_local.shell = os.getenv("SHELL")
 	end,
 })

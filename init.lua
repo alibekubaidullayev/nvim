@@ -1,4 +1,2 @@
-require("core.options")
-require("core.keymaps")
-require("core.autocommands")
-require("plugins")
+require("core")
+require("core.lazy")

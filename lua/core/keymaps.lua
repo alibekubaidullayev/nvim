@@ -89,17 +89,14 @@ vim.keymap.set("n", "<C-a>", "ggVG", {
 })
 
 local function rebase_dir()
-	-- 1) Open netrw (Ex)
 	vim.cmd("Ex")
 
-	-- 2) Get current directory (parent dir of current file/buffer)
 	local current_path = vim.fn.expand("%:p:h")
 
-	-- 3) Run :cd with the path
 	vim.cmd("cd " .. current_path)
 
-	-- 4) Print a confirmation message
 	print("Rebased to " .. current_path)
 end
 
 vim.keymap.set("n", "<leader>rb", rebase_dir, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>zm", "<cmd>ZenMode<CR>", { silent = true, desc = "Toggle ZenMode" })
